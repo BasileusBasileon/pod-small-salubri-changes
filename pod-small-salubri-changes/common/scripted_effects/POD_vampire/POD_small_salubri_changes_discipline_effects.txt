@@ -23,7 +23,7 @@ POD_deduct_valeren_perk_cost_healer_caste_effect = {
 		}
 		save_temporary_scope_value_as = {
 			name = added_valeren_cost
-			value = 2
+			value = 1
 		}
 	}
 	POD_deduct_extra_perk_cost_effect = {
@@ -42,7 +42,7 @@ POD_deduct_valeren_perk_cost_warrior_caste_effect = {
 		}
 		save_temporary_scope_value_as = {
 			name = added_valeren_cost
-			value = 2
+			value = 1
 		}
 	}
 	POD_deduct_extra_perk_cost_effect = {
@@ -61,7 +61,7 @@ POD_deduct_valeren_perk_cost_watcher_caste_effect = {
 		}
 		save_temporary_scope_value_as = {
 			name = added_valeren_cost
-			value = 2
+			value = 1
 		}
 	}
 	POD_deduct_extra_perk_cost_effect = {
