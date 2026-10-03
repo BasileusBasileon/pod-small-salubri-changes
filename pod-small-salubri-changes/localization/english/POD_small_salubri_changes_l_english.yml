@@ -1,0 +1,6 @@
+﻿l_english: 
+ rule_pod_salubri_third_eye: "$POD_gamerule$ Salubri Third Eye"
+ setting_pod_salubri_third_eye_valeren: "Valeren"
+ setting_pod_salubri_third_eye_valeren_desc: "The Salubris Third Eye will be shown for any character that has a Valeren perk of the third level."
+ setting_pod_salubri_third_eye_salubri: "Salubri"
+ setting_pod_salubri_third_eye_salubri_desc: "The Salubris Third Eye will always be shown for all Salubri and nobody else."

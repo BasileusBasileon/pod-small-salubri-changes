@@ -1,0 +1,11 @@
+﻿pod_salubri_third_eye = {
+	default = pod_salubri_third_eye_valeren
+	
+	categories = {
+		pod
+		historicity
+	}
+
+	pod_salubri_third_eye_valeren = { flag = GG_can_change_rule }
+	pod_salubri_third_eye_salubri = { flag = GG_can_change_rule }
+}

@@ -1,0 +1,81 @@
+﻿POD_is_casted_salubri = {
+	OR = {
+		has_trait = salubri_warrior
+		has_trait = salubri_healer
+		has_trait = salubri_watcher
+	}
+}
+
+POD_can_afford_valeren_perk_caste_trigger = {
+	trigger_if = {
+		limit = {
+			POD_is_casted_salubri = yes
+		}
+		POD_can_afford_valeren_$CASTE$_perk_caste_trigger = { LEVEL = $LEVEL$ }
+	}
+	trigger_else = {
+		POD_can_afford_valeren_perk_trigger = {
+			LEVEL = $LEVEL$
+			VAR   = additional_$CASTE$_valeren_cost
+		}
+	}
+}
+
+POD_can_afford_valeren_healer_perk_caste_trigger = {
+	OR = {
+		has_trait = salubri_healer
+		AND = {
+			OR = {
+				has_trait = salubri_warrior
+				has_trait = salubri_watcher
+			}
+			
+			POD_can_afford_valeren_perk_caste_cost_trigger = {
+				LEVEL = $LEVEL$
+			}
+		}
+	}
+}
+
+POD_can_afford_valeren_warrior_perk_caste_trigger = {
+	OR = {
+		has_trait = salubri_warrior
+		AND = {
+			OR = {
+				has_trait = salubri_healer
+				has_trait = salubri_watcher
+			}
+			
+			POD_can_afford_valeren_perk_caste_cost_trigger = {
+				LEVEL = $LEVEL$
+			}
+		}
+	}
+}
+
+POD_can_afford_valeren_watcher_perk_caste_trigger = {
+	OR = {
+		has_trait = salubri_watcher
+		AND = {
+			OR = {
+				has_trait = salubri_warrior
+				has_trait = salubri_healer
+			}
+			
+			POD_can_afford_valeren_perk_caste_cost_trigger = {
+				LEVEL = $LEVEL$
+			}
+		}
+	}
+}
+
+POD_can_afford_valeren_perk_caste_cost_trigger = {
+	save_temporary_scope_value_as = {
+		name = added_valeren_cost
+		value = 2
+	}
+	POD_can_afford_discipline_perk_trigger = {
+		LEVEL = $LEVEL$
+		DISCIPLINE = valeren
+	}
+}

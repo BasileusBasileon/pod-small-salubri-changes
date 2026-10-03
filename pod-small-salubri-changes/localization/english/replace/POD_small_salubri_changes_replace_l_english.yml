@@ -1,0 +1,3 @@
+﻿l_english: 
+ SALUBRI_LEGACY_3_PERK_EFFECT:1 "#F She will sing as the world burns around her. And perhaps it will be enough.#!"
+ POD_discipline_perk_cost_valeren: "From other started [GetTrait('valeren').GetName(GetNullCharacter)] paths / being the wrong Caste"

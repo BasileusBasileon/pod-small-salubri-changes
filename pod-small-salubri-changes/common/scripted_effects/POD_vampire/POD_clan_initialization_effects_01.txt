@@ -1,0 +1,143 @@
+﻿salubri_traits_effect = {
+	if = {
+		limit = { has_trait = sadistic }
+		random = {
+			chance = 25
+			remove_trait = sadistic
+			add_trait = compassionate
+		}
+	}
+	if = {
+		limit = { has_trait = callous }
+		random = {
+			chance = 25
+			remove_trait = callous
+			add_trait = compassionate
+		}
+	}
+	if = {
+		limit = { has_trait = craven }
+		random = {
+			chance = 30
+			remove_trait = craven
+			add_trait = brave
+		}
+	}
+	if = {
+		limit = { has_trait = arbitrary }
+		random = {
+			chance = 20
+			remove_trait = arbitrary
+			add_trait = just
+		}
+	}
+	if = {
+		limit = { has_trait = cynical }
+		random = {
+			chance = 20
+			remove_trait = cynical
+			add_trait = zealous
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_trait = lifestyle_blademaster
+			}
+		}
+		random_list = {
+			95 = {}
+			3 = {
+				modifier = {
+					add = 2
+					age > 100
+				}
+				add_trait = lifestyle_blademaster
+			}
+			2 = {
+				modifier = {
+					add = 1
+					age > 200
+				}
+				add_trait = lifestyle_blademaster
+				add_trait_xp = { trait = lifestyle_blademaster value = 50 }
+			}
+			0 = {
+				modifier = {
+					add = 1
+					age > 500
+				}
+				add_trait = lifestyle_blademaster
+				add_trait_xp = { trait = lifestyle_blademaster value = 100 }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_trait = lifestyle_mystic
+			}
+		}
+		random_list = {
+			95 = {}
+			3 = {
+				modifier = {
+				add = 2
+				age > 100
+				}
+				add_trait = lifestyle_mystic
+			}
+			2 = {
+				modifier = {
+				add = 1
+				age > 200
+				}
+				add_trait = lifestyle_mystic
+				add_trait_xp = { trait = lifestyle_mystic value = 50 }
+			}
+			0 = {
+				modifier = {
+				add = 1
+				age > 500
+				}
+				add_trait = lifestyle_mystic
+				add_trait_xp = { trait = lifestyle_mystic value = 100 }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_trait = lifestyle_physician
+			}
+		}
+		random_list = {
+			95 = {}
+			3 = {
+				modifier = {
+				add = 2
+				age > 100
+				}
+				add_trait = lifestyle_physician
+			}
+			2 = {
+				modifier = {
+				add = 1
+				age > 200
+				}
+				add_trait = lifestyle_physician
+				add_trait_xp = { trait = lifestyle_physician value = 50 }
+			}
+			0 = {
+				modifier = {
+				add = 1
+				age > 500
+				}
+				add_trait = lifestyle_physician
+				add_trait_xp = { trait = lifestyle_physician value = 100 }
+			}
+		}
+	}
+
+	POD_salubri_caste_new_vampire_initialization_effect = yes
+}

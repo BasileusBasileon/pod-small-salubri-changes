@@ -1,0 +1,165 @@
+﻿# Always do the case initialization when you become a Salubri, excluding Nkulu Zao
+POD_salubri_caste_new_vampire_initialization_effect = {
+	if = {
+		limit = {
+			is_salubri_trigger = yes
+			NOT = {
+				faith = faith:laibon
+			}
+		}
+		POD_salubri_caste_initialization_effect = yes
+	}
+}
+
+POD_salubri_caste_initialization_effect = {
+	if = {
+		limit = {
+			NOR = {
+				has_trait = salubri_warrior
+				has_trait = salubri_watcher
+				has_trait = salubri_healer
+			}
+		}
+
+		# We can get the caste of the
+		if = {
+			limit = {
+				house = house:house_samiel
+				house = house:house_twilight
+				house = house:house_barachiel
+			}
+
+			add_trait = salubri_warrior
+			POD_angelic_name_warrior_initialization_effect = yes
+		}
+		else_if = {
+			limit = {
+				house = house:house_watcher
+				house = house:house_onmyoji
+				house = house:house_abdallah
+			}
+
+			add_trait = salubri_watcher
+		}
+		else_if = {
+			limit = {
+				house = house:house_rayzeel
+				house = house:house_enosh
+				house = house:house_mokur
+				house = house:house_hrorsh
+			}
+			add_trait = salubri_healer
+		}
+		# Otherwise we have to look up our parents or assign at random
+		else = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							exists = father
+							father = {
+								has_trait = salubri_warrior
+							}
+						}
+						AND = {
+							exists = mother
+							mother = {
+								has_trait = salubri_warrior
+							}
+						}
+					}
+				}
+
+				add_trait = salubri_warrior
+			}
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							exists = father
+							father = {
+								has_trait = salubri_watcher
+							}
+						}
+						AND = {
+							exists = mother
+							mother = {
+								has_trait = salubri_watcher
+							}
+						}
+					}
+				}
+
+				add_trait = salubri_watcher
+			}
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							exists = father
+							father = {
+								has_trait = salubri_healer
+							}
+						}
+						AND = {
+							exists = mother
+							mother = {
+								has_trait = salubri_healer
+							}
+						}
+					}
+				}
+
+				add_trait = salubri_healer
+			}
+			else_if = {
+				limit = {
+					is_ai = no
+				}
+
+				# Players in character setup
+			}
+			else = {
+				# Characters generated without connection to the main Clan
+				random_list = {
+					1 = {
+						add_trait = salubri_healer
+						modifier = {
+							add = 10
+							OR = {
+								has_trait = education_diplomacy
+								has_trait = education_learning
+							}
+						}
+					}
+					
+					1 = {
+						add_trait = salubri_warrior
+						POD_angelic_name_warrior_initialization_effect = yes
+						
+						modifier = {
+							add = 10
+							has_trait = education_martial
+						}
+						modifier = {
+							add = 10
+							has_trait = education_martial_prowess
+						}
+					}
+					
+					1 = {
+						add_trait = salubri_watcher
+						
+						modifier = {
+							add = 10
+							OR = {
+								has_trait = education_intrigue
+								has_trait = education_learning
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

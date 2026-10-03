@@ -1,0 +1,13 @@
+﻿on_game_start = {
+	on_actions = { pod_small_salubri_changes_on_game_start }
+}
+
+pod_small_salubri_changes_on_game_start = {
+	effect = {
+		dynasty:10000011 = {
+			every_dynasty_member = {
+				POD_salubri_caste_initialization_effect = yes
+			}
+		}
+	}
+}

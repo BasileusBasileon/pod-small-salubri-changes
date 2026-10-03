@@ -1,0 +1,874 @@
+﻿obeah_panacea_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 1 0 }
+	icon = node_choleric
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 1 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 1 }
+	}
+
+	auto_selection_weight = {
+		value = 10
+		if = {
+			limit = { has_choleric_valeren_interest_trigger = yes }
+			multiply = vampire_ai_interest_lifestyle_weight
+		}
+		if = {
+			limit = { POD_vampire_ai_can_start_new_choleric = no }
+			multiply = 0
+		}
+	}
+
+	character_modifier = {
+		epidemic_travel_danger = -2
+		epidemic_resistance = 2
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 1 }
+		# if this is the first tree you pick, increase the cost of the others
+		if = {
+			limit = { NOT = { has_variable = additional_healer_valeren_cost } }
+			set_variable = { name = additional_warrior_valeren_cost   value = 1 }
+			set_variable = { name = additional_watcher_valeren_cost   value = 1 }
+		}
+		# if this is the second tree you pick, increase the cost of the one you haven't picked yet
+		else_if = {
+			limit = { var:additional_healer_valeren_cost = 1 }
+			if = {
+				limit = { has_variable = additional_warrior_valeren_cost }
+				change_variable = { name = additional_warrior_valeren_cost   add = 1 }
+			}
+			if = {
+				limit = { has_variable = additional_watcher_valeren_cost }
+				change_variable = { name = additional_watcher_valeren_cost   add = 1 }
+			}
+		}
+		custom_description_no_bullet = {
+			text = obeah_panacea_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 1 }
+	}
+}
+
+sense_death_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 4 0 }
+	icon = node_choleric
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 1 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 1 }
+	}
+
+	auto_selection_weight = {
+		value = 10
+		if = {
+			limit = { has_choleric_valeren_interest_trigger = yes }
+			multiply = vampire_ai_interest_lifestyle_weight
+		}
+		if = {
+			limit = { POD_vampire_ai_can_start_new_choleric = no }
+			multiply = 0
+		}
+	}
+
+	character_modifier = {
+		negate_prowess_penalty_add = 2
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 1 }
+		# if this is the first tree you pick, increase the cost of the others
+		if = {
+			limit = { NOT = { has_variable = additional_warrior_valeren_cost } }
+			set_variable = { name = additional_healer_valeren_cost    value = 1 }
+			set_variable = { name = additional_watcher_valeren_cost   value = 1 }
+		}
+		# if this is the second tree you pick, increase the cost of the one you haven't picked yet
+		else_if = {
+			limit = { var:additional_warrior_valeren_cost = 1 }
+			if = {
+				limit = { has_variable = additional_healer_valeren_cost }
+				change_variable = { name = additional_healer_valeren_cost   add = 1 }
+			}
+			if = {
+				limit = { has_variable = additional_watcher_valeren_cost }
+				change_variable = { name = additional_watcher_valeren_cost   add = 1 }
+			}
+		}
+		custom_description_no_bullet = {
+			text = sense_death_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 1 }
+	}
+}
+
+sense_cycle_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 7 0 }
+	icon = node_choleric
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 1 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 1 }
+	}
+
+	auto_selection_weight = {
+		value = 10
+		if = {
+			limit = { has_choleric_valeren_interest_trigger = yes }
+			multiply = vampire_ai_interest_lifestyle_weight
+		}
+		if = {
+			limit = { POD_vampire_ai_can_start_new_choleric = no }
+			multiply = 0
+		}
+	}
+
+	character_modifier = {
+		enemy_hostile_scheme_success_chance_add = -10
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 1 }
+		# if this is the first tree you pick, increase the cost of the others
+		if = {
+			limit = { NOT = { has_variable = additional_watcher_valeren_cost } }
+			set_variable = { name = additional_healer_valeren_cost    value = 1 }
+			set_variable = { name = additional_warrior_valeren_cost   value = 1 }
+		}
+		# if this is the second tree you pick, increase the cost of the one you haven't picked yet
+		else_if = {
+			limit = { var:additional_watcher_valeren_cost = 1 }
+			if = {
+				limit = { has_variable = additional_healer_valeren_cost }
+				change_variable = { name = additional_healer_valeren_cost   add = 1 }
+			}
+			if = {
+				limit = { has_variable = additional_warrior_valeren_cost }
+				change_variable = { name = additional_warrior_valeren_cost   add = 1 }
+			}
+		}
+		custom_description_no_bullet = {
+			text = sense_cycle_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 1 }
+	}
+}
+
+auguring_the_sickness_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 1 1 }
+	icon = node_choleric
+
+	parent = obeah_panacea_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 2 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 2 }
+	}
+
+	character_modifier = {
+		courtier_and_guest_opinion = 15
+		epidemic_travel_danger = -3
+		epidemic_resistance = 3
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 2 }
+		custom_description_no_bullet = {
+			text = auguring_the_sickness_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 2 }
+	}
+}
+
+gift_of_sleep_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 4 1 }
+	icon = node_choleric
+
+	parent = sense_death_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 2 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 2 }
+	}
+
+	character_modifier = {
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 2 }
+		custom_description_no_bullet = {
+			text = gift_of_sleep_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 2 }
+	}
+}
+
+peaceful_touch_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 7 1 }
+	icon = node_choleric
+
+	parent = sense_cycle_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 2 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 2 }
+	}
+
+	character_modifier = {
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 2 }
+		custom_description_no_bullet = {
+			text = peaceful_touch_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 2 }
+	}
+}
+
+healers_touch_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 0 2 }
+	icon = node_choleric
+
+	parent = auguring_the_sickness_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 3 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 3 }
+	}
+
+	character_modifier = {
+		epidemic_travel_danger = -5
+		epidemic_resistance = 5
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 3 }
+		custom_description_no_bullet = {
+			text = healers_touch_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 3 }
+	}
+}
+
+neutral_guard_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 2 2 }
+	icon = node_choleric
+
+	parent = auguring_the_sickness_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 3 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 3 }
+	}
+
+	character_modifier = {
+		defender_advantage = 5
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 3 }
+		custom_description_no_bullet = {
+			text = neutral_guard_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 3 }
+	}
+}
+
+burning_touch_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 4 2 }
+	icon = node_choleric
+
+	parent = gift_of_sleep_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 3 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 3 }
+	}
+
+	character_modifier = {
+		prowess_no_portrait = 5
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 3 }
+		custom_description_no_bullet = {
+			text = burning_touch_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 3 }
+	}
+}
+
+pariahs_caress_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 7 2 }
+	icon = node_choleric
+
+	parent = peaceful_touch_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 3 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 3 }
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 3 }
+		custom_description_no_bullet = {
+			text = pariahs_caress_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 3 }
+	}
+}
+
+king_davids_blessing_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 0 3 }
+	icon = node_choleric
+
+	parent = healers_touch_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 4 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 4 }
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 4 }
+		custom_description_no_bullet = {
+			text = king_davids_blessing_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 4 }
+	}
+}
+
+shepherds_watch_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 2 3 }
+	icon = node_choleric
+
+	parent = neutral_guard_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 4 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 4 }
+	}
+
+	character_modifier = {
+		defender_advantage = 5
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 4 }
+		custom_description_no_bullet = {
+			text = shepherds_watch_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 4 }
+	}
+}
+
+armor_of_caines_fury_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 4 3 }
+	icon = node_choleric
+
+	parent = burning_touch_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 4 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 4 }
+	}
+
+	character_modifier = {
+		defender_advantage = 5
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 4 }
+		custom_description_no_bullet = {
+			text = armor_of_caines_fury_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 4 }
+	}
+}
+
+watcher_peacemaker_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 7 3 }
+	icon = node_choleric
+
+	parent = pariahs_caress_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 4 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 4 }
+	}
+
+	character_modifier = {
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 4 }
+		custom_description_no_bullet = {
+			text = watcher_peacemaker_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 4 }
+	}
+}
+
+unburden_the_bestial_soul_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 1 4 }
+	icon = node_choleric
+
+	parent = king_davids_blessing_perk
+	parent = shepherds_watch_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 5 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 5 }
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 5 }
+		custom_description_no_bullet = {
+			text = unburden_the_bestial_soul_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 5 }
+	}
+}
+
+ending_the_watch_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 3 4 }
+	icon = node_choleric
+
+	parent = armor_of_caines_fury_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 5 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 5 }
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 5 }
+		custom_description_no_bullet = {
+			text = ending_the_watch_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 5 }
+	}
+}
+
+vengeance_of_samiel_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 5 4 }
+	icon = node_choleric
+
+	parent = armor_of_caines_fury_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 5 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 5 }
+	}
+
+	character_modifier = {
+		attacker_advantage = 5
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 5 }
+		custom_description_no_bullet = {
+			text = vengeance_of_samiel_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 5 }
+	}
+}
+
+souls_breath_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 7 4 }
+	icon = node_choleric
+
+	parent = watcher_peacemaker_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 5 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 5 }
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 5 }
+		custom_description_no_bullet = {
+			text = souls_breath_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 5 }
+	}
+}
+
+healervalerenadvanced_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 1 5 }
+	icon = trait_obeahadvanced
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 6 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 6 }
+	}
+
+	parent = unburden_the_bestial_soul_perk
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 6 }
+		remove_trait = valeren
+		add_trait_force_tooltip = valerenadvanced
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 6 }
+		if = {
+			limit = { is_ai = yes }
+			set_focus = no
+		}
+	}
+}
+
+warriorvalerenadvanced_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 4 5 }
+	icon = trait_valerenadvanced
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 6 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 6 }
+	}
+
+	parent = ending_the_watch_perk
+	parent = vengeance_of_samiel_perk
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 6 }
+		remove_trait = valeren
+		add_trait_force_tooltip = valerenadvanced
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 6 }
+		if = {
+			limit = { is_ai = yes }
+			set_focus = no
+		}
+	}
+}
+
+watchervalerenadvanced_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 7 5 }
+	icon = trait_watcher
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 6 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 6 }
+	}
+
+	parent = souls_breath_perk
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 6 }
+		remove_trait = valeren
+		add_trait_force_tooltip = valerenadvanced
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 6 }
+		if = {
+			limit = { is_ai = yes }
+			set_focus = no
+		}
+	}
+}
+
+fathers_judgement_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 0 6 }
+	icon = node_choleric
+
+	can_be_picked = {
+		has_perk = healervalerenadvanced_perk
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 7 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 7 }
+		is_ai = no
+	}
+
+	character_modifier = {
+		prowess_no_portrait = 5
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 7 }
+		custom_description_no_bullet = {
+			text = fathers_judgement_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 7 }
+	}
+}
+
+repulsion_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 0 7 }
+	icon = node_choleric
+
+	parent = fathers_judgement_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 8 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 8 }
+		is_ai = no
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 8 }
+		custom_description_no_bullet = {
+			text = repulsion_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 8 }
+	}
+}
+
+rayzeels_song_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 2 6 }
+	icon = node_choleric
+	parent = repulsion_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 9 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 9 }
+		is_ai = no
+	}
+
+	character_modifier = {
+		epidemic_travel_danger = -5
+		epidemic_resistance = 10
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 9 }
+		custom_description_no_bullet = {
+			text = rayzeels_song_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 9 }
+	}
+}
+
+heavens_gate_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 2 7 }
+	icon = trait_obeahadvanced
+
+	parent = rayzeels_song_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 10 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "healer" LEVEL = 10 }
+		is_ai = no
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "healer" LEVEL = 10 }
+		custom_description_no_bullet = {
+			text = heavens_gate_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 10 }
+	}
+}
+
+blissful_agony_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 4 6 }
+	icon = node_choleric
+
+	can_be_picked = {
+		has_perk = warriorvalerenadvanced_perk
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 7 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 7 }
+		is_ai = no
+	}
+
+	character_modifier = {
+		prowess_no_portrait = 5
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 7 }
+		custom_description_no_bullet = {
+			text = blissful_agony_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 7 }
+	}
+}
+
+sword_of_the_righteous_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 4 7 }
+	icon = node_choleric
+
+	parent = blissful_agony_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 8 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 8 }
+		is_ai = no
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 8 }
+		custom_description_no_bullet = {
+			text = sword_of_the_righteous_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 8 }
+	}
+}
+
+song_of_the_blooded_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 4 8 }
+	icon = trait_valerenadvanced
+
+	parent = sword_of_the_righteous_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 9 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "warrior" LEVEL = 9 }
+		is_ai = no
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "warrior" LEVEL = 9 }
+		custom_description_no_bullet = {
+			text = song_of_the_blooded_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 9 }
+	}
+}
+
+safe_passage_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 6 6 }
+	icon = node_choleric
+
+	can_be_picked = {
+		has_perk = watchervalerenadvanced_perk
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 7 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 7 }
+		is_ai = no
+	}
+
+	character_modifier = {
+		county_opinion_add = 50
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 7 }
+		custom_description_no_bullet = {
+			text = safe_passage_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 7 }
+	}
+}
+
+aversion_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 6 7 }
+	icon = node_choleric
+
+	parent = safe_passage_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 8 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 8 }
+		is_ai = no
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 8 }
+		custom_description_no_bullet = {
+			text = aversion_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 8 }
+	}
+}
+
+watcher_purification_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 8 6 }
+	icon = node_choleric
+	parent = aversion_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 9 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 9 }
+		is_ai = no
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 9 }
+		custom_description_no_bullet = {
+			text = watcher_purification_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 9 }
+	}
+}
+
+watcher_soul_exchange_perk = {
+	lifestyle = choleric_lifestyle
+	tree = valeren
+	position = { 8 7 }
+	icon = trait_watcher
+
+	parent = watcher_purification_perk
+
+	can_be_picked = {
+		POD_can_obtain_discipline_of_level_trigger = { DISCIPLINE = valeren LEVEL = 10 }
+		POD_can_afford_valeren_perk_caste_trigger = { CASTE = "watcher" LEVEL = 10 }
+		is_ai = no
+	}
+
+	effect = {
+		POD_deduct_valeren_perk_cost_caste_effect = { CASTE = "watcher" LEVEL = 10 }
+		custom_description_no_bullet = {
+			text = watcher_soul_exchange_perk_effect
+		}
+		POD_can_obtain_discipline_of_level_effect = { DISCIPLINE = valeren LEVEL = 10 }
+	}
+}

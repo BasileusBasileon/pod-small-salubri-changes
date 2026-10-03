@@ -1,0 +1,24 @@
+﻿# MONSTER EYES
+
+POD_portrait_third_eye_trigger = {
+	OR = {
+		POD_is_saulot_trigger = yes
+		trigger_if = {
+			limit = {
+				has_game_rule = pod_salubri_third_eye_valeren
+			}
+			OR = {
+				has_perk = healers_touch_perk
+				has_perk = neutral_guard_perk
+				has_perk = burning_touch_perk
+				has_perk = pariahs_caress_perk
+			}
+		}
+		trigger_else = {
+			has_trait = salubri
+		}
+		has_character_flag = POD_third_eye_flag
+		POD_has_fleshcrafting_visual_perk = { PERK = fc_head_third_eye_perk }
+	}
+	POD_portrait_no_human_body_trigger = no
+}

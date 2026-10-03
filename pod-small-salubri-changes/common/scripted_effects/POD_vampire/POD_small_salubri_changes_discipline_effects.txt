@@ -1,0 +1,71 @@
+POD_deduct_valeren_perk_cost_caste_effect = {	
+	if = {
+		limit = {
+			POD_is_casted_salubri = yes
+		}
+		POD_deduct_valeren_perk_cost_$CASTE$_caste_effect = { LEVEL = $LEVEL$ }
+	}
+	else = {
+		POD_deduct_valeren_perk_cost_effect = {
+			LEVEL = $LEVEL$
+			VAR   = additional_$CASTE$_valeren_cost
+		}
+	}
+}
+
+POD_deduct_valeren_perk_cost_healer_caste_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_trait = salubri_warrior
+				has_trait = salubri_watcher
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = added_valeren_cost
+			value = 2
+		}
+	}
+	POD_deduct_extra_perk_cost_effect = {
+		LEVEL = $LEVEL$
+		DISCIPLINE = valeren
+	}
+}
+
+POD_deduct_valeren_perk_cost_warrior_caste_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_trait = salubri_healer
+				has_trait = salubri_watcher
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = added_valeren_cost
+			value = 2
+		}
+	}
+	POD_deduct_extra_perk_cost_effect = {
+		LEVEL = $LEVEL$
+		DISCIPLINE = valeren
+	}
+}
+
+POD_deduct_valeren_perk_cost_watcher_caste_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_trait = salubri_warrior
+				has_trait = salubri_healer
+			}
+		}
+		save_temporary_scope_value_as = {
+			name = added_valeren_cost
+			value = 2
+		}
+	}
+	POD_deduct_extra_perk_cost_effect = {
+		LEVEL = $LEVEL$
+		DISCIPLINE = valeren
+	}
+}
