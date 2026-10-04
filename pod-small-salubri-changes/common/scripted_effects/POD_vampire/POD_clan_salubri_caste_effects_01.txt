@@ -21,7 +21,7 @@ POD_salubri_caste_initialization_effect = {
 			}
 		}
 
-		# We can get the caste of the
+		# The default Houses have an assigned caste ...
 		if = {
 			limit = {
 				house = house:house_samiel
@@ -50,7 +50,7 @@ POD_salubri_caste_initialization_effect = {
 			}
 			add_trait = salubri_healer
 		}
-		# Otherwise we have to look up our parents or assign at random
+		# ... otherwise we have to look up our parents or assign at random
 		else = {
 			if = {
 				limit = {
@@ -117,10 +117,10 @@ POD_salubri_caste_initialization_effect = {
 					is_ai = no
 				}
 
-				# Players in character setup
+				# Players in character setup don't get a caste, that is handled by chargen when they get their disciplines
 			}
 			else = {
-				# Characters generated without connection to the main Clan
+				# Characters generated without connection to the main Clan use the weighted random system
 				random_list = {
 					1 = {
 						add_trait = salubri_healer
