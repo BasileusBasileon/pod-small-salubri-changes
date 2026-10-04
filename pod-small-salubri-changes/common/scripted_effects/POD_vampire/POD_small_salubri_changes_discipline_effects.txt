@@ -1,4 +1,4 @@
-POD_deduct_valeren_perk_cost_caste_effect = {	
+﻿POD_deduct_valeren_perk_cost_caste_effect = {	
 	if = {
 		limit = {
 			POD_is_casted_salubri = yes
