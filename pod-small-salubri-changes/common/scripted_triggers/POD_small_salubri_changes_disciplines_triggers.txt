@@ -23,7 +23,14 @@ POD_can_afford_valeren_perk_caste_trigger = {
 
 POD_can_afford_valeren_healer_perk_caste_trigger = {
 	OR = {
-		has_trait = salubri_healer
+		AND = {
+			has_trait = salubri_healer
+
+			POD_can_afford_discipline_perk_trigger = {
+				LEVEL = $LEVEL$
+				DISCIPLINE = valeren
+			}
+		}
 		AND = {
 			OR = {
 				has_trait = salubri_warrior
@@ -39,7 +46,14 @@ POD_can_afford_valeren_healer_perk_caste_trigger = {
 
 POD_can_afford_valeren_warrior_perk_caste_trigger = {
 	OR = {
-		has_trait = salubri_warrior
+		AND = {
+			has_trait = salubri_warrior
+			
+			POD_can_afford_discipline_perk_trigger = {
+				LEVEL = $LEVEL$
+				DISCIPLINE = valeren
+			}
+		}
 		AND = {
 			OR = {
 				has_trait = salubri_healer
@@ -55,7 +69,14 @@ POD_can_afford_valeren_warrior_perk_caste_trigger = {
 
 POD_can_afford_valeren_watcher_perk_caste_trigger = {
 	OR = {
-		has_trait = salubri_watcher
+		AND = {
+			has_trait = salubri_watcher
+			
+			POD_can_afford_discipline_perk_trigger = {
+				LEVEL = $LEVEL$
+				DISCIPLINE = valeren
+			}
+		}
 		AND = {
 			OR = {
 				has_trait = salubri_warrior
