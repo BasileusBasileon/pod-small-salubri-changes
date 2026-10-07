@@ -4,5 +4,5 @@ tags={
 	"Graphics"
 }
 name="PoD - Small Salubri Changes"
-supported_version="1.20.0.3"
+supported_version="1.20.0.*"
 path="mod/pod-small-salubri-changes"
