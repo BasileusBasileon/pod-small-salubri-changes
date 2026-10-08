@@ -10,93 +10,26 @@ POD_can_afford_valeren_perk_caste_trigger = {
 	trigger_if = {
 		limit = {
 			POD_is_casted_salubri = yes
+
+			NOT = {
+				has_trait = salubri_$CASTE$
+			}
 		}
-		POD_can_afford_valeren_$CASTE$_perk_caste_trigger = { LEVEL = $LEVEL$ }
+
+		save_temporary_scope_value_as = {
+			name = added_valeren_cost
+			value = 1
+		}
+
+		POD_can_afford_discipline_perk_trigger = {
+			LEVEL = $LEVEL$
+			DISCIPLINE = valeren
+		}
 	}
 	trigger_else = {
 		POD_can_afford_valeren_perk_trigger = {
 			LEVEL = $LEVEL$
 			VAR   = additional_$CASTE$_valeren_cost
 		}
-	}
-}
-
-POD_can_afford_valeren_healer_perk_caste_trigger = {
-	OR = {
-		AND = {
-			has_trait = salubri_healer
-
-			POD_can_afford_discipline_perk_trigger = {
-				LEVEL = $LEVEL$
-				DISCIPLINE = valeren
-			}
-		}
-		AND = {
-			OR = {
-				has_trait = salubri_warrior
-				has_trait = salubri_watcher
-			}
-			
-			POD_can_afford_valeren_perk_caste_cost_trigger = {
-				LEVEL = $LEVEL$
-			}
-		}
-	}
-}
-
-POD_can_afford_valeren_warrior_perk_caste_trigger = {
-	OR = {
-		AND = {
-			has_trait = salubri_warrior
-			
-			POD_can_afford_discipline_perk_trigger = {
-				LEVEL = $LEVEL$
-				DISCIPLINE = valeren
-			}
-		}
-		AND = {
-			OR = {
-				has_trait = salubri_healer
-				has_trait = salubri_watcher
-			}
-			
-			POD_can_afford_valeren_perk_caste_cost_trigger = {
-				LEVEL = $LEVEL$
-			}
-		}
-	}
-}
-
-POD_can_afford_valeren_watcher_perk_caste_trigger = {
-	OR = {
-		AND = {
-			has_trait = salubri_watcher
-			
-			POD_can_afford_discipline_perk_trigger = {
-				LEVEL = $LEVEL$
-				DISCIPLINE = valeren
-			}
-		}
-		AND = {
-			OR = {
-				has_trait = salubri_warrior
-				has_trait = salubri_healer
-			}
-			
-			POD_can_afford_valeren_perk_caste_cost_trigger = {
-				LEVEL = $LEVEL$
-			}
-		}
-	}
-}
-
-POD_can_afford_valeren_perk_caste_cost_trigger = {
-	save_temporary_scope_value_as = {
-		name = added_valeren_cost
-		value = 1
-	}
-	POD_can_afford_discipline_perk_trigger = {
-		LEVEL = $LEVEL$
-		DISCIPLINE = valeren
 	}
 }
