@@ -24,9 +24,11 @@ POD_salubri_caste_initialization_effect = {
 		# The default Houses have an assigned caste ...
 		if = {
 			limit = {
-				house = house:house_samiel
-				house = house:house_twilight
-				house = house:house_barachiel
+				OR = {
+					house = house:house_samiel
+					house = house:house_twilight
+					house = house:house_barachiel
+				}
 			}
 
 			add_trait = salubri_warrior
@@ -34,19 +36,23 @@ POD_salubri_caste_initialization_effect = {
 		}
 		else_if = {
 			limit = {
-				house = house:house_watcher
-				house = house:house_onmyoji
-				house = house:house_abdallah
+				OR = {
+					house = house:house_watcher
+					house = house:house_onmyoji
+					house = house:house_abdallah
+				}
 			}
 
 			add_trait = salubri_watcher
 		}
 		else_if = {
 			limit = {
-				house = house:house_rayzeel
-				house = house:house_enosh
-				house = house:house_mokur
-				house = house:house_hrorsh
+				OR = {
+					house = house:house_rayzeel
+					house = house:house_enosh
+					house = house:house_mokur
+					house = house:house_hrorsh
+				}
 			}
 			add_trait = salubri_healer
 		}
@@ -71,6 +77,7 @@ POD_salubri_caste_initialization_effect = {
 				}
 
 				add_trait = salubri_warrior
+				POD_angelic_name_warrior_initialization_effect = yes
 			}
 			else_if = {
 				limit = {

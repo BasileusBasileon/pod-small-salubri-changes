@@ -4,8 +4,15 @@
 
 pod_small_salubri_changes_on_game_start = {
 	effect = {
-		dynasty:10000011 = {
+		dynasty:10000011 = { # Clan Salubri
 			every_dynasty_member = {
+				# Prevent existing Warriors from getting a new name at gamestart
+				add_character_flag = {
+					flag = already_has_angelic_name
+					days = 30
+				}
+
+				# Assign castes
 				POD_salubri_caste_initialization_effect = yes
 			}
 		}
