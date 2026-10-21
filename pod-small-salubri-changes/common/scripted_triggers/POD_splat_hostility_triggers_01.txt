@@ -1,0 +1,17 @@
+﻿POD_werewolf_on_vampire_trigger = {
+	AND = {
+		$ACTOR$ ?= { 
+			has_trait = fera
+			religion = { is_in_family = rf_gaia }
+		}
+		$RECIPIENT$ ?= { 
+			has_POD_public_vamp_blood_trigger = yes
+			NOR = { 
+				has_trait = fera
+				has_trait = kinfolk
+				has_trait = hun_and_po
+			}
+			NOT = { has_perk = fomori_deception_perk }
+		}
+	}
+}
