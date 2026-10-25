@@ -1,0 +1,8 @@
+can_employ_salubri_primogen_trigger = {
+	OR = {
+		is_salubri_trigger = yes
+		faith = {
+			POD_is_member_clan_trigger = { CLAN = salubri }
+		}
+	}
+}
