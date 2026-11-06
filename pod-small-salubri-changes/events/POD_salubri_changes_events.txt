@@ -1,0 +1,290 @@
+﻿namespace = POD_salubri_changes
+
+POD_salubri_changes.1 = {
+	type = character_event
+	content_source = dlc_POD
+	title = POD_salubri_changes.1.title
+	desc = POD_salubri_changes.1.desc
+
+	theme = salubri_coa
+	override_background = { reference = ep2_hunt_foggy_forest }
+
+	left_portrait = {
+		character = root
+		animation = throne_room_conversation_4
+		camera = camera_event_very_left
+	}
+	right_portrait = {
+		character = scope:warrior
+		animation = throne_room_conversation_3
+	}
+	
+	widget = {
+		gui = "POD_shader_event_fog_alley_night"
+		container = "background_shader_vfx_container"
+	}
+	
+	immediate = {
+		play_music_cue = "mood_in_search_of_iniquity"
+
+		if = {
+			limit = {
+				any_character_artifact = {
+					has_variable = code_samiel
+				}
+			}
+			random_relation = {
+				type = friend
+				type = lover
+				limit = {
+					has_trait = salubri_warrior
+				}
+				save_scope_as = warrior
+			}
+		}
+		else = {
+			random_relation = {
+				type = friend
+				type = lover
+				limit = {
+					has_trait = salubri_warrior
+					any_character_artifact = {
+						has_variable = code_samiel
+					}
+				}
+				save_scope_as = warrior
+			}
+		}
+	}
+	
+	option = {
+		name = POD_salubri_changes.1.option.a
+		custom_tooltip = POD_salubri_changes.1.option.a.tt
+
+		if = {
+			limit = {
+				NOR = {
+					has_trait = witch
+					any_secret = {
+						type = secret_witch
+					}
+				}
+			}
+
+			trigger_event = POD_salubri_changes.2
+		}
+		else = {
+			trigger_event = POD_salubri_changes.3
+		}
+	}
+	
+	option = {
+		trigger = {
+			NOR = {
+				has_trait = witch
+				any_secret = {
+					type = secret_witch
+				}
+			}
+		}
+
+		name = POD_salubri_changes.1.option.b
+		
+		# Refund
+		add_piety = 10000
+	}
+	
+	option = {
+		trigger = {
+			trigger_if = {
+				limit = {
+					NOR = {
+						has_trait = witch
+						any_secret = {
+							type = secret_witch
+						}
+					}
+				}
+				always = no
+			}
+		}
+
+		name = POD_salubri_changes.1.option.c
+		
+		# Refund
+		add_piety = 10000
+	}
+}
+
+POD_salubri_changes.2 = {
+	type = character_event
+	content_source = dlc_POD
+	title = POD_salubri_changes.2.title
+	desc = POD_salubri_changes.2.desc
+
+	theme = salubri_coa
+	override_background = { reference = ep2_hunt_foggy_forest }
+
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+		camera = camera_event_very_left
+
+		triggered_outfit = {
+			trigger = { always = yes }
+			outfit_tags = { no_clothes }
+		}
+	}
+	right_portrait = {
+		character = scope:warrior
+		animation = throne_room_conversation_2
+		camera = camera_event_very_right
+	}
+	
+	widget = {
+		gui = "POD_shader_event_fog_alley_night"
+		container = "background_shader_vfx_container"
+	}
+	
+	immediate = {
+		play_music_cue = "mx_cue_sacredrite"
+
+		random_list = {
+			1 = { POD_save_tooltip = { LOC = azazel_name } }
+			1 = { POD_save_tooltip = { LOC = batariel_name } }
+			1 = { POD_save_tooltip = { LOC = barachiel_name } }
+			1 = { POD_save_tooltip = { LOC = armaros_name } }
+			1 = { POD_save_tooltip = { LOC = ariel_name } }
+			1 = { POD_save_tooltip = { LOC = adriel_name } }
+			1 = { POD_save_tooltip = { LOC = ananiel_name } }
+			1 = { POD_save_tooltip = { LOC = bezaliel_name } }
+			1 = { POD_save_tooltip = { LOC = camael_name } }
+			1 = { POD_save_tooltip = { LOC = cassiel_name } }
+			1 = { POD_save_tooltip = { LOC = daniel_name } }
+			1 = { POD_save_tooltip = { LOC = eleleth_name } }
+			1 = { POD_save_tooltip = { LOC = gabriel_name } }
+			1 = { POD_save_tooltip = { LOC = gadreel_name } }
+			1 = { POD_save_tooltip = { LOC = hadraniel_name } }
+			1 = { POD_save_tooltip = { LOC = haniel_name } }
+			1 = { POD_save_tooltip = { LOC = hofniel_name } }
+			1 = { POD_save_tooltip = { LOC = mitrael_name } }
+			1 = { POD_save_tooltip = { LOC = jehoel_name } }
+			1 = { POD_save_tooltip = { LOC = jophiel_name } }
+			1 = { POD_save_tooltip = { LOC = kerubiel_name } }
+			1 = { POD_save_tooltip = { LOC = kepharel_name } }
+			1 = { POD_save_tooltip = { LOC = kusiel_name } }
+			1 = { POD_save_tooltip = { LOC = malakbel_name } }
+			1 = { POD_save_tooltip = { LOC = metatron_name } }
+			1 = { POD_save_tooltip = { LOC = moroniel_name } }
+			1 = { POD_save_tooltip = { LOC = muriel_name } }
+			1 = { POD_save_tooltip = { LOC = nakiel_name } }
+			1 = { POD_save_tooltip = { LOC = nathaniel_name } }
+			1 = { POD_save_tooltip = { LOC = nathael_name } }
+			1 = { POD_save_tooltip = { LOC = ophaniel_name } }
+			1 = { POD_save_tooltip = { LOC = phanuel_name } }
+			1 = { POD_save_tooltip = { LOC = puriel_name } }
+			1 = { POD_save_tooltip = { LOC = radueriel_name } }
+			1 = { POD_save_tooltip = { LOC = raguel_name } }
+			1 = { POD_save_tooltip = { LOC = ramiel_name } }
+			1 = { POD_save_tooltip = { LOC = raphael_name } }
+			1 = { POD_save_tooltip = { LOC = raziel_name } }
+			1 = { POD_save_tooltip = { LOC = sabriel_name } }
+			1 = { POD_save_tooltip = { LOC = sachiel_name } }
+			1 = { POD_save_tooltip = { LOC = samael_name } }
+			1 = { POD_save_tooltip = { LOC = sahaquiel_name } }
+			1 = { POD_save_tooltip = { LOC = sarathiel_name } }
+			1 = { POD_save_tooltip = { LOC = sariel_name } }
+			1 = { POD_save_tooltip = { LOC = selaphiel_name } }
+			1 = { POD_save_tooltip = { LOC = seraphiel_name } }
+			1 = { POD_save_tooltip = { LOC = shamsiel_name } }
+			1 = { POD_save_tooltip = { LOC = sidriel_name } }
+			1 = { POD_save_tooltip = { LOC = tenaliel_name } }
+			1 = { POD_save_tooltip = { LOC = tamiel_name } }
+			1 = { POD_save_tooltip = { LOC = tenniel_name } }
+			1 = { POD_save_tooltip = { LOC = turiel_name } }
+			1 = { POD_save_tooltip = { LOC = throniel_name } }
+			1 = { POD_save_tooltip = { LOC = uriel_name } }
+			1 = { POD_save_tooltip = { LOC = uziel_name } }
+			1 = { POD_save_tooltip = { LOC = vasael_name } }
+			1 = { POD_save_tooltip = { LOC = vehuel_name } }
+			1 = { POD_save_tooltip = { LOC = virtuel_name } }
+			1 = { POD_save_tooltip = { LOC = wormiel_name } }
+			1 = { POD_save_tooltip = { LOC = yomiel_name } }
+			1 = { POD_save_tooltip = { LOC = zadkiel_name } }
+			1 = { POD_save_tooltip = { LOC = zaphkiel_name } }
+			1 = { POD_save_tooltip = { LOC = zaqiel_name } }
+			1 = { POD_save_tooltip = { LOC = zephiel_name } }
+			1 = { POD_save_tooltip = { LOC = zephaniel_name } }
+			1 = { POD_save_tooltip = { LOC = malachiel_name } }
+			1 = { POD_save_tooltip = { LOC = castiel_name } }
+			1 = { POD_save_tooltip = { LOC = engeliel_name } }
+			1 = { POD_save_tooltip = { LOC = orifiel_name } }
+			1 = { POD_save_tooltip = { LOC = kemuel_name } }
+		}
+	}
+
+	after = {
+		remove_variable = warrior_name
+	}
+	
+	option = {
+		name = POD_salubri_changes.2.option.a
+
+		add_stress = minor_stress_gain
+
+		remove_trait = salubri_healer
+		remove_trait = salubri_watcher
+
+		add_trait_force_tooltip = salubri_warrior
+		change_first_name = "[Localize(SCOPE.GetFlagName('saved_tooltip'))]"
+
+		set_character_faith = faith:codeofsamiel
+	}
+}
+
+# Begone, Witch!
+POD_salubri_changes.3 = {
+	type = character_event
+	content_source = dlc_POD
+	title = POD_salubri_changes.3.title
+	desc = POD_salubri_changes.3.desc
+
+	theme = salubri_coa
+	override_background = { reference = ep2_hunt_foggy_forest }
+
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+		camera = camera_event_very_left
+
+		triggered_outfit = {
+			trigger = { always = yes }
+			outfit_tags = { no_clothes }
+		}
+	}
+	right_portrait = {
+		character = scope:warrior
+		animation = shock
+	} 
+	
+	widget = {
+		gui = "POD_shader_event_fog_alley_night"
+		container = "background_shader_vfx_container"
+	}
+	
+	immediate = {
+		play_music_cue = "mood_in_search_of_iniquity"
+	}
+	
+	option = {
+		name = POD_salubri_changes.3.option.a
+		custom_tooltip = POD_salubri_changes.3.option.a.tt
+
+		add_stress = monumental_stress_gain
+		POD_increase_wounds_hostile_effect = {
+			ATTACKER = scope:warrior
+			REASON = duel_aggravated
+			COUNT = POD_double_holy_damage
+		}
+	}
+}

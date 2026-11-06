@@ -1,0 +1,35 @@
+﻿#Salubri clanbook, road of heaven etc
+create_artifact_code_samiel_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+	# Not really used, but if we don't set the scopes we get errors in the feature selection
+	set_artifact_rarity_famed = yes
+
+	# Create the artifact
+	create_artifact = {
+		decaying = no	
+		name = artifact_code_samiel_name
+		description = artifact_code_samiel_description
+		#category = court
+		type = $TYPE$		
+		template = code_samiel_template
+		visuals = book
+		modifier = artifact_same_faith_opinion_20_modifier
+		save_scope_as = newly_created_artifact
+		wealth = scope:wealth
+		quality = scope:quality
+		history = {
+			type = created_before_history
+			actor = character:790383
+		}		
+	}
+	scope:newly_created_artifact = {
+		set_variable = historical_unique_artifact
+		set_variable = code_samiel
+		#save_scope_as = epic
+		save_scope_value_as = {
+			name = code_samiel
+			value = yes
+		}
+	}
+}

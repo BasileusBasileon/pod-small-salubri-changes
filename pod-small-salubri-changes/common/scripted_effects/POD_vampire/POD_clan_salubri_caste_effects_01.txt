@@ -21,8 +21,70 @@ POD_salubri_caste_initialization_effect = {
 			}
 		}
 
-		# The default Houses have an assigned caste ...
+		# Look up our parents first. This is needed first so as to account for the Blooding ...
 		if = {
+			limit = {
+				OR = {
+					AND = {
+						exists = father
+						father = {
+							has_trait = salubri_warrior
+						}
+					}
+					AND = {
+						exists = mother
+						mother = {
+							has_trait = salubri_warrior
+						}
+					}
+				}
+			}
+
+			add_trait = salubri_warrior
+			POD_angelic_name_warrior_initialization_effect = yes
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						exists = father
+						father = {
+							has_trait = salubri_watcher
+						}
+					}
+					AND = {
+						exists = mother
+						mother = {
+							has_trait = salubri_watcher
+						}
+					}
+				}
+			}
+
+			add_trait = salubri_watcher
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						exists = father
+						father = {
+							has_trait = salubri_healer
+						}
+					}
+					AND = {
+						exists = mother
+						mother = {
+							has_trait = salubri_healer
+						}
+					}
+				}
+			}
+
+			add_trait = salubri_healer
+		}
+		# ... the default Houses have an assigned caste ...
+		else_if = {
 			limit = {
 				OR = {
 					house = house:house_samiel
@@ -56,70 +118,9 @@ POD_salubri_caste_initialization_effect = {
 			}
 			add_trait = salubri_healer
 		}
-		# ... otherwise we have to look up our parents or assign at random
+		# ... otherwise we have to assign at random
 		else = {
 			if = {
-				limit = {
-					OR = {
-						AND = {
-							exists = father
-							father = {
-								has_trait = salubri_warrior
-							}
-						}
-						AND = {
-							exists = mother
-							mother = {
-								has_trait = salubri_warrior
-							}
-						}
-					}
-				}
-
-				add_trait = salubri_warrior
-				POD_angelic_name_warrior_initialization_effect = yes
-			}
-			else_if = {
-				limit = {
-					OR = {
-						AND = {
-							exists = father
-							father = {
-								has_trait = salubri_watcher
-							}
-						}
-						AND = {
-							exists = mother
-							mother = {
-								has_trait = salubri_watcher
-							}
-						}
-					}
-				}
-
-				add_trait = salubri_watcher
-			}
-			else_if = {
-				limit = {
-					OR = {
-						AND = {
-							exists = father
-							father = {
-								has_trait = salubri_healer
-							}
-						}
-						AND = {
-							exists = mother
-							mother = {
-								has_trait = salubri_healer
-							}
-						}
-					}
-				}
-
-				add_trait = salubri_healer
-			}
-			else_if = {
 				limit = {
 					is_ai = no
 				}

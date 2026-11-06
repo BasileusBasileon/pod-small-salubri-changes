@@ -1,0 +1,107 @@
+﻿undergo_the_blooding_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	decision_group_type = major
+
+	ai_check_interval = 0
+
+	is_shown = {
+		OR = {
+			is_ai = no
+			has_trait = salubri_healer
+			has_trait = salubri_watcher
+		}
+
+		OR = {
+			any_character_artifact = {
+				has_variable = code_samiel
+			}
+
+			any_relation = {
+				type = friend
+				type = lover
+				count >= 1
+
+				has_trait = salubri_warrior
+				any_character_artifact = {
+					has_variable = code_samiel
+				}
+			}
+		}
+	}
+
+	is_valid = {
+		OR = {
+			knows_language_of_culture = culture:hebrew
+			learning >= 15
+		}
+		OR = {
+			knows_language_of_culture = culture:enochian
+			learning >= 25
+		}
+
+		custom_tooltip = {
+			text = salubri_warrior_positive_relationship_and_code_desc
+			OR = {
+				any_relation = {
+					type = friend
+					type = lover
+					count >= 1
+
+					has_trait = salubri_warrior
+					any_character_artifact = {
+						has_variable = code_samiel
+					}
+					OR = {
+						knows_language_of_culture = culture:enochian
+						learning >= 15
+					}
+				}
+				AND = {
+					any_character_artifact = {
+						has_variable = code_samiel
+					}
+					any_relation = {
+						type = friend
+						type = lover
+						count >= 1
+
+						has_trait = salubri_warrior
+						OR = {
+							knows_language_of_culture = culture:enochian
+							learning >= 15
+						}
+					}
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only  = {
+		always = yes
+	}
+
+	cost = {
+		piety = 5000
+	}
+
+	effect = {
+		trigger_event = POD_salubri_changes.1
+
+		show_as_tooltip = {
+			remove_trait = salubri_healer
+			remove_trait = salubri_watcher
+
+			add_trait_force_tooltip = salubri_warrior
+
+			set_character_faith = faith:codeofsamiel
+
+			custom_label = { text = salubri_changes_take_angelic_name }
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+}
