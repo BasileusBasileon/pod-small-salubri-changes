@@ -5,5 +5,5 @@ tags={
 	"Gameplay"
 }
 name="PoD - Small Salubri Changes"
-supported_version="1.20.0.*"
+supported_version="1.21.*"
 remote_file_id="3812672582"
