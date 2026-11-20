@@ -8,7 +8,6 @@
 
 	is_shown = {
 		OR = {
-			is_ai = no
 			has_trait = salubri_healer
 			has_trait = salubri_watcher
 		}
